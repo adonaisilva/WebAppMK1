@@ -39,7 +39,7 @@ nav a {
 /* layout and functionality styles start here */
 
 h1 {
-    padding: 0.5em 0 0.5em 0.5em;
+    padding: 0.5em 0 0.5em 1rem;
 }
 
 header {
@@ -159,4 +159,42 @@ header {
 
 nav {
     background: var(--background-color);
+}
+
+/* media queries styles start here */
+
+@media (min-width: 1020px) {
+    .container-header {
+        display: flex;
+    }
+
+    h1 {
+        min-width: max-content;
+    }
+
+    nav {
+        transform: scale(1, 1);
+        position: unset;
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    nav ul {
+        margin: 0;
+        opacity: 1;
+    }
+
+    .nav-toggle-label {
+        display: none;
+    }
+
+    .links-navigation {
+        margin-left: auto;
+    }
+
+    .links-sign {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
 }
