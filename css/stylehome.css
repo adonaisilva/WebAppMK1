@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
-
 :root {
-    --background-color: rgba(0, 214, 170, 0.85);
+    --background-color: #fff;
     --color-link-hover: yellow;
+    --color-button: #3689ff;
+    --color-button-hover: hsl(215, 100%, 40%);
+    --color-main: #5c656d;
+
+    --main-font: "Rubik", sans-serif;
+    --logo-font: "Outfit", sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -24,6 +28,11 @@ h1 {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 nav ul {
     /*set default beheavior for links list*/
     list-style: none;
@@ -31,12 +40,9 @@ nav ul {
     padding: 0;
 }
 
-nav a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* layout and functionality styles start here */
+/* -----------------------
+ layout and functionality styles start here
+ ------------------------ */
 
 h1 {
     padding: 0.5em 0 0.5em 1rem;
@@ -77,13 +83,13 @@ header {
 
 .nav-toggle:checked ~ nav ul {
     opacity: 1; /*show links animated*/
-    transition: opacity 150ms ease-in-out 350ms;
+    /* transition: opacity 150ms ease-in-out 350ms; */
 }
 
 .nav-toggle-label {
     position: absolute; /*fixed position of toggle on parent (header)*/
     top: 0;
-    right: 1em; /*give some space from the border*/
+    right: 1rem; /*give some space from the border*/
     height: 100%; /*use all vertical space available on header (non counting ul height becouse is removed from document)*/
     display: flex; /*convert into flex for be able to use align property*/
     align-items: center; /*center vertically all childrens (in this case only 1)*/
@@ -94,7 +100,7 @@ header {
 .nav-toggle-label span::after {
     /*creates a horizontal line for hamburger menu*/
     display: block;
-    background: black;
+    background: var(--color-main);
     width: 2em;
     height: 0.2em;
     border-radius: 0.2em;
@@ -126,42 +132,87 @@ nav {
     transform: scale(1, 0);
     /*hide nav container, will be displayed when checkbox is checked*/
     transform-origin: top;
-    transition: transform 500ms ease-in-out; /*show nav from the top animation*/
+    /* transition: transform 500ms ease-in-out;*/ /* show nav from the top animation */
 }
 
 nav ul {
-    margin-bottom: 1em;
-    margin-left: 1em;
+    margin-bottom: 2.5em;
     opacity: 0; /*hide nav links animation*/
-    transition: opacity 150ms ease-in-out;
-
+    /* transition: opacity 150ms ease-in-out; */
     display: flex;
     gap: 1em;
     justify-content: center;
 }
 
-/* font styles start here */
+.links-sign a {
+    padding: 0.5rem 1.5rem;
+}
+
+/* -----------------------
+font styles start here 
+----------------------- */
+
+body {
+    color: var(--color-main);
+    font-family: var(--main-font);
+}
+
+h1 {
+    font-family: var(--logo-font);
+}
 
 nav a {
-    font-size: 1.2rem;
-    text-transform: lowercase;
+    font-size: 1rem;
 }
 
 nav a:hover {
-    color: var(--color-link-hover);
+    color: black;
 }
 
-/* decoration styles start here */
+/* -----------------------
+decoration styles start here 
+----------------------- */
 
 header {
     background: var(--background-color);
+}
+
+h1 a:hover {
+    color: var(--color-button);
 }
 
 nav {
     background: var(--background-color);
 }
 
-/* media queries styles start here */
+.links-sign a {
+    border-radius: 1.5rem;
+    text-transform: uppercase;
+}
+
+#login {
+    color: var(--color-button);
+    background: white;
+    border: 2px solid var(--color-button);
+}
+
+#signup {
+    background: var(--color-button);
+    color: white;
+}
+
+#login:hover {
+    color: var(--color-button-hover);
+    border-color: var(--color-button-hover);
+}
+
+#signup:hover {
+    background: var(--color-button-hover);
+}
+
+/* -----------------------
+media queries styles start here 
+----------------------- */
 
 @media (min-width: 1020px) {
     .container-header {
@@ -174,6 +225,7 @@ nav {
 
     nav {
         transform: scale(1, 1);
+        /* transition: transform 1ms linear; */
         position: unset;
         width: 100%;
         display: flex;
@@ -183,6 +235,7 @@ nav {
     nav ul {
         margin: 0;
         opacity: 1;
+        /* transition: opacity 1ms linear; */
     }
 
     .nav-toggle-label {
@@ -196,5 +249,12 @@ nav {
     .links-sign {
         margin-left: auto;
         margin-right: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .links-navigation {
+        flex-direction: column;
+        text-align: center;
     }
 }
