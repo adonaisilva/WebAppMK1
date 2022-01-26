@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:300,600");
+
+:root {
+    --background-color: rgba(0, 214, 170, 0.85);
+    --color-link-hover: yellow;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    /*set default beheavior for document*/
+    box-sizing: border-box;
+}
+
+body {
+    /*set default beheavior for document*/
+    margin: 0;
+}
+
+h1 {
+    /* set default beheavior for title*/
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    /*set default beheavior for links list*/
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* layout and functionality styles start here */
+
+h1 {
+    padding: 0.5em 0 0.5em 0.5em;
+}
+
+header {
+    /* text-align: center; */
+    position: fixed; /*keep navbar on top of page*/
+    z-index: 999; /*move in front of all other elements*/
+    width: 100%; /*use all viewport width*/
+}
+
+.nav-toggle {
+    display: none; /*hide toggle input*/
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span {
+    transform: rotate(
+        45deg
+    ); /*transformation to create an X from the hamburger*/
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span::after {
+    transform: rotate(
+        -90deg
+    ); /*transformation to create an X from the hamburger*/
+    top: 0;
+}
+
+.nav-toggle:checked ~ .nav-toggle-label span::before {
+    opacity: 0; /*transformation to create an X from the hamburger*/
+}
+
+.nav-toggle:checked ~ nav {
+    /*search for preceeding nav-toggle siblings*/
+    transform: scale(1, 1); /*display nav container when checked*/
+}
+
+.nav-toggle:checked ~ nav ul {
+    opacity: 1; /*show links animated*/
+    transition: opacity 150ms ease-in-out 350ms;
+}
+
+.nav-toggle-label {
+    position: absolute; /*fixed position of toggle on parent (header)*/
+    top: 0;
+    right: 1em; /*give some space from the border*/
+    height: 100%; /*use all vertical space available on header (non counting ul height becouse is removed from document)*/
+    display: flex; /*convert into flex for be able to use align property*/
+    align-items: center; /*center vertically all childrens (in this case only 1)*/
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    /*creates a horizontal line for hamburger menu*/
+    display: block;
+    background: black;
+    width: 2em;
+    height: 0.2em;
+    border-radius: 0.2em;
+    position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    /*creates a copy of content of span*/
+    content: "";
+    position: absolute;
+}
+
+.nav-toggle-label span::before {
+    /*move upper line to the top*/
+    bottom: 0.5em;
+}
+.nav-toggle-label span::after {
+    /*move lower line to the bottom*/
+    top: 0.5em;
+}
+
+nav {
+    position: absolute;
+    text-align: left;
+    top: 100%; /*move list to end of h1*/
+    left: 0; /*move list to edge of screen*/
+    width: 100%;
+    transform: scale(1, 0);
+    /*hide nav container, will be displayed when checkbox is checked*/
+    transform-origin: top;
+    transition: transform 500ms ease-in-out; /*show nav from the top animation*/
+}
+
+nav ul {
+    margin-bottom: 1em;
+    margin-left: 1em;
+    opacity: 0; /*hide nav links animation*/
+    transition: opacity 150ms ease-in-out;
+
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+/* font styles start here */
+
+nav a {
+    font-size: 1.2rem;
+    text-transform: lowercase;
+}
+
+nav a:hover {
+    color: var(--color-link-hover);
+}
+
+/* decoration styles start here */
+
+header {
+    background: var(--background-color);
+}
+
+nav {
+    background: var(--background-color);
+}
