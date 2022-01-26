@@ -163,9 +163,12 @@ footer {
     max-width: 1080px;
     margin: 0 auto;
     display: flex;
-    flex: 1 1 0px;
     justify-content: space-evenly;
     gap: 1.5em;
+}
+
+.footer-container > * {
+    flex-basis: 100%;
 }
 
 footer h2 {
