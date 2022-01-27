@@ -163,7 +163,6 @@ nav ul {
 
 .hero-container {
   position: relative;
-  padding-left: 10em; /*create blank space for floating hero text box*/
   max-width: 1080px; /*limit grow size*/
   margin: 0 auto; /*center container to document*/
 }
@@ -173,11 +172,6 @@ nav ul {
 }
 
 .hero-content {
-  position: absolute; /* float hero content box*/
-  left: 0; /*move to match parent border*/
-  top: 50%; /*align child vertically to parent height*/
-  transform: translate(0, -50%);
-  width: 540px; /*fixed width will change on media queries*/
   padding: 3em;
 }
 
@@ -253,7 +247,7 @@ nav a:hover {
 
 .hero-content p {
   font-size: 0.8rem;
-  line-height: 0.5;
+  line-height: 1;
 }
 
 footer h2 {
@@ -379,6 +373,18 @@ media queries styles start here
   .links-sign {
     margin-left: auto;
     margin-right: 1rem;
+  }
+
+  .hero-container {
+    padding-left: 10em; /*create blank space for floating hero text box*/
+  }
+
+  .hero-content {
+    position: absolute; /* float hero content box*/
+    left: 0; /*move to match parent border*/
+    top: 50%; /*align child vertically to parent height*/
+    transform: translate(0, -50%);
+    width: 540px; /*fixed width will change on media queries*/
   }
 
   .footer-container {
