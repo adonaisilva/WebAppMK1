@@ -152,6 +152,11 @@ nav ul {
   justify-content: center;
 }
 
+.links-navigation {
+  flex-direction: column;
+  text-align: center;
+}
+
 .links-sign a,
 .hero-content a {
   padding: 0.5rem 1.5rem; /*creates box around link text for pill button*/
@@ -159,12 +164,6 @@ nav ul {
 
 .hero-section {
   padding-top: 8em; /*move hero section below navbar*/
-}
-
-.hero-container {
-  position: relative;
-  max-width: 1080px; /*limit grow size*/
-  margin: 0 auto; /*center container to document*/
 }
 
 .hero-img img {
@@ -187,25 +186,23 @@ footer {
   max-width: 1080px; /*limit grow*/
   margin: 0 auto; /*center section to document*/
   display: flex;
-  justify-content: space-evenly; /*give same free space between each column*/
-  gap: 1.5em; /* create some space between column*/
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 1rem;
 }
 
-.footer-container > * {
-  flex-basis: 100%; /* all flex childs will have the same space and are not allowed to grow*/
-}
-
-footer h2 {
-  min-width: max-content; /*avoid line breaks*/
-}
-
-footer li {
-  min-width: max-content; /*avoid line breaks*/
-  padding-bottom: 0.75rem; /*some space between links when stacked*/
+footer ul {
+  display: flex;
+  justify-content: center;
+  column-gap: 1rem;
 }
 
 footer h2 ~ * {
-  padding-top: 1rem; /*some space to the top for all sibling */
+  padding-top: 0rem;
+}
+
+.social-link {
+  padding-right: 0 1rem;
 }
 
 /* -----------------------
@@ -247,7 +244,6 @@ nav a:hover {
 
 .hero-content p {
   font-size: 0.8rem;
-  line-height: 1;
 }
 
 footer h2 {
@@ -338,6 +334,58 @@ footer {
 media queries styles start here 
 ----------------------- */
 
+@media (min-width: 768px) {
+  body {
+    background: lightblue;
+  }
+  .links-navigation {
+    flex-direction: row;
+  }
+
+  .hero-container {
+    position: relative;
+    max-width: 1080px; /*limit grow size*/
+    margin: 0 auto; /*center container to document*/
+    text-align: center;
+  }
+
+  .hero-content {
+    display: inline-block;
+    max-width: 80%;
+    text-align: left;
+    margin-top: -11rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-container {
+    max-width: 1080px; /*limit grow*/
+    margin: 0 auto; /*center section to document*/
+    flex-direction: row;
+    justify-content: space-evenly; /*give same free space between each column*/
+    gap: 1.5em; /* create some space between column*/
+    text-align: left;
+  }
+
+  .footer-container > * {
+    flex-basis: 100%; /* all flex childs will have the same space and are not allowed to grow*/
+  }
+
+  .footer-container ul {
+    display: block;
+  }
+
+  .footer-container li {
+    padding-bottom: 1rem;
+  }
+
+  .social-link {
+    padding-right: 0 1rem;
+  }
+}
+
 @media (min-width: 1020px) {
   .container-header {
     display: flex;
@@ -385,36 +433,6 @@ media queries styles start here
     top: 50%; /*align child vertically to parent height*/
     transform: translate(0, -50%);
     width: 540px; /*fixed width will change on media queries*/
-  }
-
-  .footer-container {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .links-navigation {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 1rem;
-  }
-
-  footer ul {
-    display: flex;
-    justify-content: center;
-    column-gap: 1rem;
-  }
-
-  footer h2 ~ * {
-    padding-top: 0rem;
-  }
-
-  .social-link {
-    padding-right: 0 1rem;
+    margin: 0;
   }
 }
