@@ -1,0 +1,36 @@
+:root {
+}
+
+.hero-container {
+  position: relative;
+  padding-left: 10rem;
+}
+
+.hero-img img {
+  max-width: 100%;
+}
+
+.hero-content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 540px;
+}
+
+.hero-content > * {
+  padding: 0;
+  margin: 0;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+}
+
+.hero-content h2 {
+  font-size: 1.125rem;
+}
+
+.hero-content small {
+  font-size: 0.8rem;
+}
