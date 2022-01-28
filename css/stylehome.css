@@ -140,13 +140,13 @@ nav {
   transform: scale(1, 0);
   /*hide nav container, will be displayed when checkbox is checked*/
   transform-origin: top;
-  /* transition: transform 500ms ease-in-out;*/ /* show nav from the top animation */
+  transition: transform 500ms ease-in-out; /* show nav from the top animation */
 }
 
 nav ul {
   margin-bottom: 2.5em;
   opacity: 0; /*hide nav links animation*/
-  /* transition: opacity 150ms ease-in-out; */
+  transition: opacity 150ms ease-in-out;
   display: flex;
   gap: 1em;
   justify-content: center;
@@ -397,7 +397,7 @@ media queries styles start here
 
   nav {
     transform: scale(1, 1);
-    /* transition: transform 1ms linear; */
+    transition: transform 1ms linear;
     position: unset;
     width: 100%;
     display: flex;
@@ -407,7 +407,7 @@ media queries styles start here
   nav ul {
     margin: 0;
     opacity: 1;
-    /* transition: opacity 1ms linear; */
+    transition: opacity 1ms linear;
   }
 
   .nav-toggle-label {
