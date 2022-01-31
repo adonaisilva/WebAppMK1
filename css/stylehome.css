@@ -178,6 +178,94 @@ nav ul {
   margin: 0;
 }
 
+.features-container {
+  --aspect-ratio: calc(605.984 / 280);
+  --width: 100%;
+}
+
+.features-input {
+  display: none;
+}
+
+.features-card,
+.features-title,
+.features-content {
+  display: block;
+}
+
+.features-title,
+.features-content {
+  padding: 0 0.75rem;
+}
+
+.features-main {
+  display: grid;
+  grid-template-areas:
+    "image"
+    "bottom";
+  max-width: 80%;
+  margin: 0 auto;
+  column-gap: 0;
+}
+
+* .features-card {
+  align-self: center;
+  justify-self: center;
+}
+
+.features-image {
+  grid-area: image;
+  background-image: url("https://www.bakediary.com/images/features/feature_01.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: var(--width);
+  margin: 0 auto;
+  padding-bottom: calc(var(--width) * var(--aspect-ratio));
+}
+
+.features-card {
+  display: block;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.features-card span {
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+}
+
+.features-input:nth-of-type(1):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_01.jpg");
+}
+
+.features-input:nth-of-type(2):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_02.jpg");
+}
+
+.features-input:nth-of-type(3):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_03.jpg");
+}
+
+.features-input:nth-of-type(4):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_04.jpg");
+}
+
+.features-input:nth-of-type(5):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_05.jpg");
+}
+
+.features-input:nth-of-type(6):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_06.jpg");
+}
+
+.features-input:nth-of-type(7):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_07.jpg");
+}
+
+.features-input:nth-of-type(8):checked ~ .features-image {
+  background-image: url("https://www.bakediary.com/images/features/feature_08.jpg");
+}
+
 footer {
   width: 100%;
 }
@@ -244,6 +332,15 @@ nav a:hover {
 
 .hero-content p {
   font-size: 0.8rem;
+}
+
+.features-title {
+  font-weight: bold;
+  line-height: 2;
+}
+
+.features-content {
+  font-weight: lighter;
 }
 
 footer h2 {
@@ -321,6 +418,19 @@ h1 a:hover {
   background: white;
 }
 
+.features-card:hover .features-title {
+  color: black;
+}
+
+.features-input:checked + .features-card span {
+  border-left: 0.3em solid var(--color-button);
+  border-right: 0.3em solid var(--color-button);
+}
+
+.features-input:checked + .features-card .features-title {
+  color: var(--color-button);
+}
+
 footer {
   background: var(--color-footer);
   color: white;
@@ -336,7 +446,7 @@ media queries styles start here
 
 @media (min-width: 768px) {
   body {
-    background: lightblue;
+    background: white;
   }
   .links-navigation {
     flex-direction: row;
@@ -354,6 +464,30 @@ media queries styles start here
     max-width: 80%;
     text-align: left;
     margin-top: -11rem;
+  }
+
+  .features-main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "image right";
+    column-gap: 0.5em;
+  }
+  .features-image {
+    grid-row: 1 / 9;
+    width: 100%;
+  }
+
+  .features-card {
+    text-align: left;
+  }
+
+  .features-title,
+  .features-content {
+    padding-right: 0;
+  }
+
+  .features-input:checked + .features-card span {
+    border-left: 0.3em solid var(--color-button);
+    border-right: 0.3em solid transparent;
   }
 
   .footer-container {
@@ -434,5 +568,31 @@ media queries styles start here
     transform: translate(0, -50%);
     width: 540px; /*fixed width will change on media queries*/
     margin: 0;
+  }
+
+  .features-main {
+    max-width: 1080px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left image right";
+  }
+
+  .features-card:nth-of-type(odd) {
+    text-align: right;
+  }
+
+  .features-input:nth-of-type(odd).features-input:checked
+    + .features-card
+    span {
+    border-right: 0.3em solid var(--color-button);
+    border-left: 0.3em solid transparent;
+  }
+
+  .features-image {
+    grid-row: 1 / 5;
+  }
+
+  .features-title,
+  .features-content {
+    padding-right: 0.75em;
   }
 }
